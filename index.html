@@ -8,11 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
-    <img src="img/logo.png" alt="">
+    <img src="img/logo.png" alt="Logo" class="logo">
 
+    <div class="caixa-principal">
+    <div class="caixa-texto">
     <h4>R$ 799,00</h4>
 
     <h1>Nike Air Zoom</h1>
@@ -23,6 +26,18 @@
         que você adora, mas com melhor coforto nas áreas sensíveis do seu pé, como o arco e os dedos.
     </p>
 
-    <button class="botao-carrinho">Adicionar ao Carrinho</button>
+    <a class="botao-carrinho">Adicionar ao Carrinho</a>
+    </div>
+    <div class="caixa-imagem">
+        <img src="img/nike1.png" alt="Nike Tenis" class="imagem-tenis">
+    </div>
+    </div>
+    <div class="caixa-botoes">
+        <div onclick="mudarVisual('#ccee66')" class="botoes verde"></div>
+        <div onclick="mudarVisual('#ff9eb5')" class="botoes rosa"></div>
+        <div onclick="mudarVisual('#58cced')" class="botoes azul"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
