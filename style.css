@@ -1,97 +1,148 @@
-body {
+* {
     margin: 0;
     padding: 0;
-    background: #ccee66;
-    color: white;
-    padding: 20px 160px;
-    height: 100vh;
-    font-family: "Noto Sans", sans-serif;
-    overflow: hidden;
-}
-body::before{
-    content: "";
-    background: #090909;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 800px;
-    transform: rotate(-70deg);
+    box-sizing: border-box;
 }
 
-body::after{
+body {
+    background: #ccee66; /* Cor inicial */
+    color: white;
+    font-family: "Noto Sans", sans-serif;
+    height: 100vh;
+    width: 100vw;
+    padding: 40px 8%; /* Espaçamento lateral dinâmico */
+    overflow: hidden;
+    position: relative;
+    transition: background 0.5s ease-in-out;
+}
+
+/* Faixa Preta no Fundo */
+body::before {
+    content: "";
+    background: #090909;
+    width: 2000px;
+    height: 2000px;
+    position: absolute;
+    top: -50%;
+    left: 65%; /* Ajustado para dar mais espaço ao centro */
+    transform: rotate(-25deg);
+    z-index: -1;
+}
+
+/* Texto Nike de Fundo */
+body::after {
     content: "Nike";
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: rgba(0, 0, 0, 0.485);
-    font-size: 250px;
-    font-weight: bold;
-    
+    color: rgba(0, 0, 0, 0.1); /* Mais sutil para não brigar com o texto principal */
+    font-size: 20vw; /* Responsivo conforme o tamanho da tela */
+    font-weight: 900;
+    z-index: -1;
+    pointer-events: none;
 }
 
-.logo{
+.logo {
     width: 80px;
-}
-h4{
-    font-size: 30px;
-}
-h1{
-    font-size: 80px;
-}
-p {
-    font-size: 16px;
+    margin-bottom: 20px;
 }
 
-.botao-carrinho {
-    background-color: #a3be52;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 16px;
-    color: black;
-    cursor: pointer;
-}
-
-.botao-carrinho:hover{
-    opacity: 0.7;
-}
-
-.imagem-tenis {
-    width: 800px;
-    transform: rotate(-25deg);
-
-}
 .caixa-principal {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 75%;
+    height: 70vh; /* Altura controlada para centralizar o conteúdo */
 }
-.caia-texto{
+
+.caixa-texto {
     max-width: 500px;
+    z-index: 2;
 }
-.caixa-botoes{
- z-index: 2;
- position: relative;
- display: flex;
- gap: 20px;
+
+h4 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
-.botoes{
-    width: 80px;
-    height: 80px;
+
+h1 {
+    font-size: clamp(40px, 6vw, 80px); /* Fonte que se ajusta ao tamanho da tela */
+    line-height: 1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.botao-carrinho {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: 0.3s;
+}
+
+.botao-carrinho:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Área da Imagem */
+.caixa-imagem {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.imagem-tenis {
+    width: 100%;
+    max-width: 750px;
+    transform: rotate(-25deg);
+    filter: drop-shadow(50px 50px 50px rgba(0,0,0,0.3));
+    transition: 0.8s ease-in-out;
+}
+
+/* Seletores de Cores */
+.caixa-botoes {
+    position: absolute;
+    bottom: 50px;
+    left: 8%;
+    display: flex;
+    gap: 20px;
+    z-index: 10;
+}
+
+.botoes {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     cursor: pointer;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    transition: 0.3s;
 }
-.botoes:active {
-    opacity: 0.6;
+
+.botoes:hover {
+    transform: scale(1.1);
+    border-color: white;
 }
-.verde{
-    background: #ccee66;
-}
-.azul{
-    background: #58cced;
-}
-.rosa{
-    background: #ff9eb5;
+
+.verde { background: #ccee66; }
+.rosa  { background: #ff9eb5; }
+.azul  { background: #58cced; }
+
+/* Efeito de Troca para o JS */
+.troca-efeito {
+    opacity: 0;
+    transform: rotate(-25deg) translateY(-50px);
 }
